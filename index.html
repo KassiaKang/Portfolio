@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Gowun+Dodum&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    
+  <title>포트폴리오 디자인</title>
+    
+  <style>
+      
+         * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+      
+    body {
+    font-family: "Gowun Dodum", serif;    
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 40;
+      background-color: #f0f0f0;
+      overflow: hidden;
+    }
+      
+ header {
+      display: flex;
+      justify-content: space-between; 
+      align-items: center;
+      padding: 18px 20px;
+     
+    }
+    .circle-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    svg {
+      position: absolute;
+      transition: transform 1s ease, top 1s ease, bottom 1s ease;
+    }
+
+    .center-circle {
+      width: 70vmin;
+      height: 70vmin;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .top-circle {
+      width: 90vmin;
+      height: 90vmin;
+      top: -60%;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: top 1s ease;
+    }
+
+    .bottom-circle {
+      width: 90vmin;
+      height: 90vmin;
+      bottom: -60%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    circle {
+      cx: 50%;
+      cy: 50%;
+      r: 48%;
+      stroke: black;
+      stroke-width: 2px;
+      vector-effect: non-scaling-stroke;
+      fill: none;
+      stroke-dasharray: 0, 10;
+      stroke-linecap: round;
+    }
+
+    .motion-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 25px;
+     font-family: "Gowun Dodum", serif;
+      font-weight: bold;
+      color: black;
+      text-align: center;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+
+    .about-text {
+      position: absolute;
+      top: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+        
+    }
+      
+          .about-text a {
+      font-size: 15px;
+       font-family: "Gowun Dodum", serif;
+      font-weight: bold;
+      color: black;
+      text-align: center;
+      cursor: pointer;  
+    text-decoration: none;
+    }
+      
+
+    .graphic-text {
+      position: absolute;
+      bottom: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 15px;
+      font-family: "Gowun Dodum", serif;
+      font-weight: bold;
+      color: black;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+
+    .rotating-item {
+      position: absolute;
+      transform-origin: center;
+      white-space: nowrap;
+      text-align: center;
+      text-shadow: 0 0 15px rgba(255, 223, 0, 1), 0 0 30px rgba(255, 223, 0, 1);
+    text-decoration: none;
+    }
+      
+      .rotating-item a {
+          color: #000;
+          text-decoration: none;
+      }
+
+      .rotating-item a:hover {
+          color: orange;
+      }
+    .top-line {
+      font-size: 16px;
+      font-weight: bold;
+      display: block;
+      text-shadow: 0 0 12px rgba(255, 223, 0, 1), 0 0 24px rgba(255, 223, 0, 0.9);
+    }
+
+    .bottom-line {
+      font-size: 14px;
+      display: block;
+      text-shadow: 0 0 12px rgba(255, 223, 0, 1), 0 0 24px rgba(255, 223, 0, 0.9);
+    }
+
+ 
+
+    .duk-container {
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      font-family: "Gowun Dodum", serif;
+      font-size: 12px;
+      font-weight: bold;
+      color: black;
+     text-decoration: none;
+      cursor: pointer;
+    background-color: green;
+    
+    }
+      
+
+
+    .intro-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: "Gowun Dodum", serif;
+      font-size: 18px;
+      font-weight: bold;
+      color: black;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+    }
+
+       
+        .contact-info {
+      position: absolute;
+      top: 1%;
+      right: 2%;
+      text-align: right;
+     font-family: "Gowun Dodum", serif;
+      font-size: 14px;
+      color: black;
+      line-height: 1.4;
+            
+    }
+      
+    .fade-in {
+      opacity: 1 !important;
+    }
+  </style>
+</head>
+<body>
+    
+  <div class="circle-container" id="cicleContainer">
+     <header>
+    <div class="duk-containter">   <div onclick="location.reload()" style="cursor: pointer;">Dukyung Kang</div></div> 
+       <!-- 연락처 정보 -->
+    <div class="contact-info">
+      +82 10-2362-8754<br>
+      kassiakang01@gmail.com
+    </div>
+</header> 
+    <svg class="center-circle" id="centerCircle" viewBox="0 0 120 120">
+      <circle cx="50%" cy="50%" r="48%" />
+    </svg>
+
+    <svg class="top-circle" id="topCircle" viewBox="0 0 120 120">
+      <circle cx="50%" cy="50%" r="48%" />
+    </svg>
+
+    <svg class="bottom-circle" id="bottomCircle" viewBox="0 0 120 120">
+      <circle cx="50%" cy="50%" r="48%" />
+    </svg>
+
+      <div class="motion-text" id="motionText">Motion Design </div>
+
+      <div class="about-text" id="aboutText" onclick="transitionToAbout()">
+          <a href="about.html"> About </a> </div>
+
+      <div class="graphic-text" id="graphicText">Graphic Design </div>
+
+
+    <!-- 회전 텍스트 -->
+    <div class="rotating-item" id="item1"> 
+         <a href="Digital%20Pollution.html">
+      <span class="top-line">Digital Pollution </span>
+      <span class="bottom-line">@personal project(2024)</span>
+        </a>
+    </div>
+    <div class="rotating-item" id="item2">
+        <a href="DopamineCreature.html">
+      <span class="top-line">Dopamine Creature </span>
+      <span class="bottom-line">@personal project(2024)</span>
+        </a>
+    </div>
+    <div class="rotating-item" id="item3">
+        <a href="Moneystory.html">
+      <span class="top-line">Moneystory</span>
+      <span class="bottom-line">@MBC(2023)</span>
+        </a>
+    </div>
+    <div class="rotating-item" id="item4">
+        <a href="Grigarden.html">
+      <span class="top-line">그리가든지 </span>
+      <span class="bottom-line">@MBC(2022)</span>
+        </a>
+    </div>
+    <div class="rotating-item" id="item5">
+         <a href="xcut.html">
+      <span class="top-line">인생X컷 </span>
+      <span class="bottom-line">@MBC(2022)</span>
+        </a>
+    </div>
+    <div class="rotating-item" id="item6">
+         <a href="14f.html">
+      <span class="top-line">14F Advertisement </span>
+      <span class="bottom-line">@MBC(2022)</span>
+        </a>
+    </div>
+    <div class="rotating-item" id="item7">
+         <a href="Incheon.html">
+      <span class="top-line">Incheon Family </span>
+      <span class="bottom-line">@MBC(2022)</span>
+        </a>
+    </div>
+    </div>
+
+  <script>
+    const items = document.querySelectorAll('.rotating-item');
+  const centerCircle = document.getElementById('centerCircle');
+
+  let angleOffset = 0;
+  let isPaused = false;
+  let lastUpdateTime = Date.now(); // 마지막 업데이트 시간
+
+  function getCenterPosition() {
+    const rect = centerCircle.getBoundingClientRect();
+    return {
+      x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2,
+      radius: rect.width / 2 * 1 // 궤도 크기 증가
+    };
+  }
+
+  function updatePositions() {
+    const now = Date.now();
+    const deltaTime = now - lastUpdateTime; // 경과 시간 계산
+    lastUpdateTime = now;
+
+    if (!isPaused) {
+      const { x: centerX, y: centerY, radius } = getCenterPosition();
+      const totalItems = items.length;
+
+      items.forEach((item, index) => {
+        const angle = angleOffset + (index * (360 / totalItems)) * (Math.PI / 180);
+        const x = centerX + radius * Math.cos(angle) - item.offsetWidth / 2;
+        const y = centerY + radius * Math.sin(angle) - item.offsetHeight / 2;
+        item.style.left = `${x}px`;
+        item.style.top = `${y}px`;
+      });
+
+      angleOffset += (deltaTime / 1000) * 0.2; // 일정한 회전 속도 유지
+    }
+
+    requestAnimationFrame(updatePositions);
+  }
+
+  items.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      isPaused = true; // 회전 중단
+    });
+
+    item.addEventListener('mouseleave', () => {
+      isPaused = false; // 회전 재개
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    lastUpdateTime = Date.now(); // 시간 초기화
+  });
+      
+  const topCircle = document.getElementById('topCircle');
+    const bottomCircle = document.getElementById('bottomCircle');
+    const circleContainer = document.getElementById('circleContainer');
+    const aboutText = document.getElementById('aboutText');
+    const motionText = document.getElementById('motionText');
+    const graphicText = document.getElementById('graphicText');
+      
+  
+
+  updatePositions();
+  </script>
+      
+</body>
+</html>
