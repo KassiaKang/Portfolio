@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Gowun+Dodum&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+  <title>About</title>
+  <style>
+      
+          
+         * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+      
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end; /* 원이 아래에서 시작 */
+      height: 100vh;
+      margin: 40;
+      background-color: #f0f0f0;
+      overflow: hidden;
+        font-family: "Gowun Dodum", serif;
+    }
+      
+    header {
+      display: flex;
+      justify-content: space-between; 
+      align-items: center;
+      padding: 18px 20px;
+     
+    }  
+
+    .circle-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden; /* 원이 초과되지 않도록 제한 */
+    }
+.bottom-circle {
+      width: 90vmin;
+      height: 90vmin;
+      bottom: -60%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    svg {
+      position: absolute;
+      bottom: -360%; /* 초기 위치: 화면 아래 */
+      left: 50%;
+      transform: translateX(-50%);
+      transition: bottom 1.5s ease;
+    }
+
+    .circle-container.enter svg {
+      bottom: -50%; /* 상단 10% 위치까지 올라옴 */
+    }
+
+   circle {
+      cx: 50%;
+      cy: 50%;
+      r: 48%;
+      stroke: black;
+      stroke-width: 2px;
+      vector-effect: non-scaling-stroke;
+      fill: none;
+      stroke-dasharray: 0, 10;
+      stroke-linecap: round;
+    }
+
+  .back-button {
+      position: absolute;
+      bottom: -10%; /* 버튼을 더 밑으로 조정 */
+      left: 50%;
+      transform: translate(-50%, 450% );
+      font-size: 15px;
+      font-family: "Gowun Dodum", serif;
+      font-weight: bold;
+      color: black;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: bottom 1.5s ease;
+    }
+
+    .circle-container.enter .back-button {
+      bottom: 20%; /* 원 중심 위치 */
+      opacity: 1; /* 버튼 보이기 */
+    }
+      
+        .duk-container {
+      position: absolute;
+      top: 5%;
+      left: 5%;
+     color: black;
+   font-family: "Gowun Dodum", serif;
+      font-size: 12px;
+      font-weight: bold;
+      color: black;
+      cursor: pointer;
+     text-decoration: none;
+    }
+
+      
+    .intro-text {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: "Gowun Dodum", serif;
+      font-size: 18px; /* 화면 크기에 비례한 크기 */
+      color: black;
+      text-align: center;
+    }
+          
+          .contact-info {
+      position: absolute;
+      top: 1%;
+      right: 2%;
+      text-align: right;
+     font-family: "Gowun Dodum", serif;
+      font-size: 14px;
+      color: black;
+      line-height: 1.4;
+            
+    }
+      
+        .button-container {
+            margin-top: 20%;
+            display: inline-block;
+            padding: 5px;
+            border: 1px solid black; /* 1픽셀 네모칸 */
+            border-radius: 5px; /* 네모칸에 둥근 모서리를 추가하려면 사용 */
+        }
+      
+           .download-btn {
+            color: black;
+            padding: 10px 20px;
+            border: black 2px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .button-container:hover {
+            background-color: yellow;
+      
+  </style>
+</head>
+<body>
+    
+    <div class="circle-container" id="cicleContainer">
+      <header>
+    <div class="duk-containter">   <a href="index.html" style="text-decoration: none; color:black">Dukyung Kang</a></div> 
+       <!-- 연락처 정보 -->
+    <div class="contact-info">
+      +82 10-2362-8754<br>
+      kassiakang01@gmail.com
+    </div>
+</header> 
+
+  <div class="circle-container" id="circleContainer">
+   <svg class="bottom-circle" id="bottomCircle" viewBox="0 0 120 120">
+      <circle cx="50%" cy="50%" r="48%" />
+    </svg>
+      
+  <div class="intro-text">
+    Dukyung Kang is a motion designer based on Seoul, South Korea.<br>
+    She loves creating interactive and immersive designs.
+  </div>
+         <center>
+       <div class="button-container">
+        <a href="resume.pdf" download="DukyungKang_Resume.pdf" class="download-btn">Download Resume</a>
+    </div>
+   </center>
+ <button class="back-button" id="backButton" onclick="goBack()">Back</button>
+  </div>
+    </div>
+
+  <script>
+    // 페이지 로드 후 애니메이션 트리거
+    window.addEventListener('load', () => {
+      const circleContainer = document.getElementById('circleContainer');
+      circleContainer.classList.add('enter');
+    });
+
+    // Back 버튼 클릭 시 index 페이지로 이동
+    function goBack() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
