@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Gowun+Dodum&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
     
-  <title>Dukyung Kang</title>
+  <title>포트폴리오 디자인</title>
     
   <style>
       
@@ -82,10 +82,10 @@
       stroke-dasharray: 0, 10;
       stroke-linecap: round;
     }
-
-    .motion-text {
+      
+ .motion-text {
       position: absolute;
-      top: 50%;
+      top: 52%;
       left: 50%;
       transform: translate(-50%, -50%);
       font-size: 25px;
@@ -93,10 +93,16 @@
       font-weight: bold;
       color: black;
       text-align: center;
-      opacity: 1;
-      transition: opacity 1s ease;
+        opacity: 0;
+    transition: opacity 0.5s ease, top 0.5s ease; /* 페이드인과 상승 효과 */
+        
     }
-
+      
+      .motion-text.move-up {
+                opacity: 1; /* 페이드인 완료 */
+    top: 50%; /* 최종 위치: 화면 중앙 */
+  }
+      
     .about-text {
       position: absolute;
       top: 5%;
@@ -105,7 +111,7 @@
         
     }
       
-          .about-text a {
+         .about-text a {
       font-size: 15px;
        font-family: "Gowun Dodum", serif;
       font-weight: bold;
@@ -129,6 +135,16 @@
       transition: opacity 1s ease;
     }
 
+       .graphic-text a {
+      font-size: 15px;
+       font-family: "Gowun Dodum", serif;
+      font-weight: bold;
+      color: black;
+      text-align: center;
+      cursor: pointer;  
+    text-decoration: none;
+    }
+      
     .rotating-item {
       position: absolute;
       transform-origin: center;
@@ -237,7 +253,8 @@
       <div class="about-text" id="aboutText" onclick="transitionToAbout()">
           <a href="about.html"> About </a> </div>
 
-      <div class="graphic-text" id="graphicText">Graphic Design </div>
+      <div class="graphic-text" id="graphicText">
+          <a href="indexgraphic.html">Graphic Design </a> </div>
 
 
     <!-- 회전 텍스트 -->
@@ -286,6 +303,15 @@
     </div>
 
   <script>
+         
+       // 페이지 로드 후 상승 및 페이드인 모션 트리거
+    window.addEventListener('load', () => {
+      const motionText = document.getElementById('motionText');
+      setTimeout(() => {
+        motionText.classList.add('move-up'); // 'move-up' 클래스 추가로 애니메이션 실행
+      }, 100); // 200ms 지연 후 시작
+    });
+      
     const items = document.querySelectorAll('.rotating-item');
   const centerCircle = document.getElementById('centerCircle');
 
