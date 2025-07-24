@@ -130,6 +130,45 @@
           font-size: 25px;
            margin-left: 80px;
       }
+
+.slide-container {
+  position: relative;
+  max-width: 960px;   /* 여기 수정 */
+  margin: 20px 0 20px 0;  /* 왼쪽 정렬 */
+  overflow: hidden;
+}
+
+  .slide-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 0px;
+  }
+
+
+
+.slide-wrapper img {
+  width: 500px;            /* 한 번에 한 장씩 정확히 보이게 */
+  flex-shrink: 0;
+ margin: 10px;  
+  object-fit: contain;
+  display: block;
+}
+
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255,255,255,0.7);
+    border: none;
+    font-size: 2rem;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .prev { left: 10px; }
+  .next { right: 10px; }
   </style>
 </head>
 <body>
@@ -165,13 +204,38 @@
 <p>This project materializes as a zine-sized typography guidebook, with its compact format reminiscent of smartphones. The colors (blue, yellow, green, pink, red) effectively capture the essence of essential hues found on LCD displays, which I conveyed through a risograph printing technique. This is a personal project that I have taken ownership of the entire creative process in this work.
  </p>
     </div>
-<div class="content-section" id="3">
-  <img src="rootfolder/sketch.jpg" alt="Second Image" />
+    <hr>
+<div class="content-section" id="3" style="margin-bottom: 0px; padding-bottom: 0px;">
+  <p>Typography Exploration </p>
+  <br>
+  <img src="rootfolder/typeface2.jpg" alt="Second Image" style="margin-bottom: 10px;"/>
+     <img src="rootfolder/typeface.jpg" alt="Third Image" style= "margin-top: 10px; margin-bottom:50px;"/>
     </div>
-      
-    <div class="content-section" id="2">
-     <img src="rootfolder/typeface.jpg" alt="Third Image" />
+    <hr>
+    <div class="content-section" id="4">
+      <p>Illustration Exploration</p>
+       <div class="slide-container">
+    <button class="prev">&#8592;</button>
+    <div class="slide-wrapper" id="slideWrapper">
+      <!-- 이미지들 -->
+      <img src="rootfolder/dop1.jpg" alt="Slide 1" />
+      <img src="rootfolder/dop2.jpg" alt="Slide 2" />
+      <img src="rootfolder/dop3.jpg" alt="Slide 3" />
+      <img src="rootfolder/dop4.jpg" alt="Slide 4" />
+      <img src="rootfolder/dop5.jpg" alt="Slide 5" />
+      <img src="rootfolder/dop6.jpg" alt="Slide 6" />
+      <img src="rootfolder/dop7.jpg" alt="Slide 7" />
+      <img src="rootfolder/dop8.jpg" alt="Slide 8" />
+      <img src="rootfolder/dop9.jpg" alt="Slide 9" />
     </div>
+    <button class="next">&#8594;</button>
+    <p style="margin-top: 10px;">Inspired by the brain’s state during dopamine release, I created a series of abstract illustrations using bold strokes of paint and pen. 
+      These were later refined and vectorized in Illustrator, resulting in a background design that complements the typeface.</p>
+  </div>
+  <img src="rootfolder/typeface1.jpg" alt="type">
+</div>
+
+
 
   </main>
 
@@ -214,5 +278,41 @@
     });
   });
       
+const slideWrapper = document.getElementById('slideWrapper');
+const slides = slideWrapper.querySelectorAll('img');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+
+let currentIndex = 0;
+
+// 초기 상태에서 버튼 상태 설정
+updateButtons();
+
+nextBtn.addEventListener('click', () => {
+  if (currentIndex < slides.length - 1) {
+    currentIndex++;
+    updateSlide();
+  }
+});
+
+prevBtn.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateSlide();
+  }
+});
+
+function updateSlide() {
+  slideWrapper.style.transform = `translateX(-${currentIndex * 500}px)`;
+  updateButtons();
+}
+
+function updateButtons() {
+  // 첫 이미지면 prev 버튼 비활성화
+  prevBtn.disabled = currentIndex === 0;
+  // 마지막 이미지면 next 버튼 비활성화
+  nextBtn.disabled = currentIndex === slides.length - 1;
+}
+  
   </script>
 </html>
