@@ -83,7 +83,7 @@
       stroke-linecap: round;
     }
       
- .motion-text {
+ .itp-text {
       position: absolute;
       top: 52%;
       left: 50%;
@@ -95,15 +95,14 @@
       text-align: center;
         opacity: 0;
     transition: opacity 0.5s ease, top 0.5s ease; /* 페이드인과 상승 효과 */
-        
     }
       
-      .motion-text.move-up {
+      .itp-text.move-up {
                 opacity: 1; /* 페이드인 완료 */
     top: 50%; /* 최종 위치: 화면 중앙 */
   }
       
-    .itp-text {
+    .about-text {
       position: absolute;
       top: 5%;
       left: 50%;
@@ -111,7 +110,7 @@
         
     }
       
-         .itp-text a {
+         .about-text a {
       font-size: 15px;
        font-family: "Gowun Dodum", serif;
       font-weight: bold;
@@ -122,7 +121,7 @@
     }
       
 
-    .graphic-text {
+    .motion-text {
       position: absolute;
       bottom: 8%;
       left: 50%;
@@ -135,7 +134,7 @@
       transition: opacity 1s ease;
     }
 
-       .graphic-text a {
+       .motion-text a {
       font-size: 15px;
        font-family: "Gowun Dodum", serif;
       font-weight: bold;
@@ -144,7 +143,9 @@
       cursor: pointer;  
     text-decoration: none;
     }
-      
+
+    
+
     .rotating-item {
       position: absolute;
       transform-origin: center;
@@ -248,65 +249,46 @@
       <circle cx="50%" cy="50%" r="48%" />
     </svg>
 
-      <div class="motion-text" id="motionText">Motion Design </div>
+      <div class="itp-text" id="itpText">Interactive Design </div>
 
-      <div class="itp-text" id="itpText" onclick="transitionToItp()">
-          <a href="itpindex.html"> Interactive Design </a> </div>
+      <div class="about-text" id="aboutText" onclick="transitionToAbout()">
+          <a href="about.html"> About </a> </div>
 
-      <div class="graphic-text" id="graphicText">
-          <a href="indexgraphic.html">Graphic Design </a> </div>
+      <div class="motion-text" id="motionText">
+          <a href="index.html">Motion Graphics </a> </div>
 
 
     <!-- 회전 텍스트 -->
     <div class="rotating-item" id="item1"> 
          <a href="Digital%20Pollution.html">
-      <span class="top-line">Digital Pollution </span>
-      <span class="bottom-line">@personal project(2024)</span>
+      <span class="top-line">Alchemy of Destiny </span>
+      <span class="bottom-line">@personal project(2025)</span>
         </a>
     </div>
     <div class="rotating-item" id="item2">
         <a href="DopamineCreature.html">
-      <span class="top-line">Dopamine Creature </span>
-      <span class="bottom-line">@personal project(2024)</span>
+      <span class="top-line">Zen Koi </span>
+      <span class="bottom-line">@group project(2025)</span>
         </a>
     </div>
     <div class="rotating-item" id="item3">
         <a href="Moneystory.html">
-      <span class="top-line">Moneystory</span>
-      <span class="bottom-line">@MBC(2023)</span>
+      <span class="top-line">The Tell-Tale Heart</span>
+      <span class="bottom-line">@personal project(2025)</span>
         </a>
     </div>
     <div class="rotating-item" id="item4">
         <a href="Grigarden.html">
-      <span class="top-line">그리가든지 </span>
-      <span class="bottom-line">@MBC(2022)</span>
+      <span class="top-line">Gathering of Creative Coding</span>
+      <span class="bottom-line">@class project(2025)</span>
         </a>
-    </div>
-    <div class="rotating-item" id="item5">
-         <a href="xcut.html">
-      <span class="top-line">인생X컷 </span>
-      <span class="bottom-line">@MBC(2022)</span>
-        </a>
-    </div>
-    <div class="rotating-item" id="item6">
-         <a href="14f.html">
-      <span class="top-line">14F Advertisement </span>
-      <span class="bottom-line">@MBC(2022)</span>
-        </a>
-    </div>
-    <div class="rotating-item" id="item7">
-         <a href="Incheon.html">
-      <span class="top-line">Incheon Family </span>
-      <span class="bottom-line">@MBC(2022)</span>
-        </a>
-    </div>
     </div>
 
   <script>
          
        // 페이지 로드 후 상승 및 페이드인 모션 트리거
     window.addEventListener('load', () => {
-      const motionText = document.getElementById('motionText');
+      const motionText = document.getElementById('itpText');
       setTimeout(() => {
         motionText.classList.add('move-up'); // 'move-up' 클래스 추가로 애니메이션 실행
       }, 100); // 200ms 지연 후 시작
@@ -368,7 +350,7 @@
   const topCircle = document.getElementById('topCircle');
     const bottomCircle = document.getElementById('bottomCircle');
     const circleContainer = document.getElementById('circleContainer');
-    const itpText = document.getElementById('itpText');
+    const aboutText = document.getElementById('aboutText');
     const motionText = document.getElementById('motionText');
     const graphicText = document.getElementById('graphicText');
       
