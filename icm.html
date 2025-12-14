@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Gowun+Dodum&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+  <title>Zen Koi</title>
+  <style>
+      
+
+      
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+     font-family: "Gowun Dodum", serif;
+      background-color: #f0f0f0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between; 
+      align-items: center;
+      padding: 10px 20px;
+  
+    }
+
+    .header-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-info {
+      text-align: right;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .archive {
+      font-size: 14px;
+    }
+
+    nav {
+      padding: 10px 22px;
+        margin-bottom: 10px;
+      text-align: left;
+      display: flex;
+    flex-direction: column; /* 수직 정렬 */
+        align-items: flex-start; /* 왼쪽 정렬 */
+    }
+
+     .number-links {
+       display: flex;
+          justify-content: center; /* 숫자 링크를 중앙 정렬 */
+      margin-top: 1%;
+      left: 18%;
+      display: flex;
+      gap: 55px; /* 숫자 간 간격 설정 */
+       font-family: "Gowun Dodum", serif;
+      font-size: 18px;
+    }  
+    
+   .number-links a {
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex; /* 플렉스 컨테이너로 숫자 중앙 정렬 */
+  justify-content: center;
+  align-items: center; /* 숫자를 동그라미의 중앙에 배치 */
+  width: 40px; /* 타원형 가로 길이 */
+  height: 40px; /* 타원형 세로 길이 */
+  border: 2px solid transparent; /* 기본 테두리 없음 */
+  border-radius: 50%; /* 타원형 */
+  transition: all 0.2s ease;
+}
+    
+    .number-links a.active {
+      background-color: rgba(0, 0, 0, 0);
+      border: 2px solid black;
+    }  
+    
+      
+    main {
+      width: 90%;
+      max-width: 1000px; 
+      margin: 80px auto;
+        float: right;
+        margin-right: 80px;
+    }
+
+    .content-section {  
+      margin-bottom: 20px;
+      padding: 20px;
+         float: right;
+    }
+
+    .content-section img,
+    .content-section iframe {
+        max-width: 80%;
+        width: 100%; /* 부모 요소에 맞게 너비 조정 */
+        height: auto; /* 자동 비율 유지 */
+        display: block;
+        margin-bottom: 10px;
+        margin-left: 50px;
+    }
+
+  .content-section iframe {
+        width: 1920px;
+        height: 450px; /* 고정된 높이 */
+        margin-left: 50px;
+        border: none;
+    }
+
+    .iframe.p5js {
+        width: 1920px;
+        height: 450px;
+        margin-left: 50px;
+    }
+    
+      p {
+          width: 80%;
+           margin-left: 50px;
+      }
+      
+      p1 {
+            width: 80%;
+          font-style: italic;
+          font-size: 25px;
+           margin-left: 80px;
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <a href="index.html" style="text-decoration: none; color:black">Dukyung Kang</a>
+    </div>
+    <div class="contact-info">
+      +01 917-244-7873<br />
+      kassiakang01@gmail.com
+    </div>
+  </header>
+
+  <nav>
+    <div class="archive">Archive</div>
+    <div class="number-links">
+       <a href="alchemyofdestiny.html">1</a>
+      <a href="zenkoi.html">2</a>
+      <a href="thetelltaleheart.html">3</a>
+      <a href="icm.html">4</a>
+    </div>
+  </nav>
+
+  <main>
+   
+                   <p1> Gathering of Creative Coding </p1>
+
+      <div class="content-section" id="1">
+      <p style="font-size: 13px">Class Project</p>
+      <p> These are the collection of creative coding worked on p5.js.</p>
+     
+       <iframe src="https://editor.p5js.org/KassiaKang/full/JfiIOZOi-" class="p5js" style="margin-top:50px;"></iframe>
+    </div>
+
+  </main>
+
+</body>
+    
+    
+     <script>
+  // 모든 숫자 링크를 가져옵니다.
+  const numberLinks = document.querySelectorAll('.number-links a');
+
+  // 페이지 로드 시 첫 번째 링크에 동그라미 표시
+  window.addEventListener('DOMContentLoaded', () => {
+    if (numberLinks.length > 1) {
+      numberLinks[3].classList.add('active'); 
+    }
+  });
+
+  // 숫자 클릭 시 동작 처리
+  numberLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+
+      // 페이지 이동 처리 (각 링크에 맞는 동작 수행)
+      if (href) {
+        // 기존의 active 클래스 제거
+        numberLinks.forEach(l => l.classList.remove('active'));
+
+        // 클릭된 링크에 active 클래스 추가
+        link.classList.add('active');
+
+        // 링크가 외부 URL 또는 다른 HTML 페이지로 이동하도록 허용
+        if (!href.startsWith('#')) {
+          window.location.href = href;
+          return;
+        }
+      }
+
+      e.preventDefault(); // 기본 동작 방지 (내부 링크일 경우)
+    });
+  });
+      
+  </script>
+</html>
