@@ -10,132 +10,212 @@
   <style>
       
 
-      
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-     font-family: "Gowun Dodum", serif;
-      background-color: #f0f0f0;
-    }
+body {
+  font-family: "Gowun Dodum", serif;
+  background-color: #f0f0f0;
+}
 
-    header {
-      display: flex;
-      justify-content: space-between; 
-      align-items: center;
-      padding: 10px 20px;
-  
-    }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
 
-    .header-left {
-      display: flex;
-      flex-direction: column;
-    }
+.header-left {
+  display: flex;
+  flex-direction: column;
+}
 
-    .contact-info {
-      text-align: right;
-      font-size: 14px;
-      line-height: 1.4;
-    }
+.contact-info {
+  text-align: right;
+  font-size: 14px;
+  line-height: 1.4;
+}
 
-    .archive {
-      font-size: 14px;
-    }
+.archive {
+  font-size: 14px;
+}
 
-    nav {
-      padding: 10px 22px;
-        margin-bottom: 10px;
-      text-align: left;
-      display: flex;
-    flex-direction: column; /* 수직 정렬 */
-        align-items: flex-start; /* 왼쪽 정렬 */
-    }
+nav {
+  padding: 10px 22px;
+  margin-bottom: 10px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
-     .number-links {
-       display: flex;
-          justify-content: center; /* 숫자 링크를 중앙 정렬 */
-      margin-top: 1%;
-      left: 18%;
-      display: flex;
-      gap: 55px; /* 숫자 간 간격 설정 */
-       font-family: "Gowun Dodum", serif;
-      font-size: 18px;
-    }  
-    
-   .number-links a {
+.number-links {
+  display: flex;
+  justify-content: center;
+  margin-top: 1%;
+  gap: 55px;
+  font-family: "Gowun Dodum", serif;
+  font-size: 18px;
+}
+
+.number-links a {
   color: #000;
   text-decoration: none;
   font-size: 16px;
   font-weight: bold;
-  display: flex; /* 플렉스 컨테이너로 숫자 중앙 정렬 */
+  display: flex;
   justify-content: center;
-  align-items: center; /* 숫자를 동그라미의 중앙에 배치 */
-  width: 40px; /* 타원형 가로 길이 */
-  height: 40px; /* 타원형 세로 길이 */
-  border: 2px solid transparent; /* 기본 테두리 없음 */
-  border-radius: 50%; /* 타원형 */
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid transparent;
+  border-radius: 50%;
   transition: all 0.2s ease;
 }
-    
-    .number-links a.active {
-      background-color: rgba(0, 0, 0, 0);
-      border: 2px solid black;
-    }  
-    
-      
-      
-    main {
-      width: 90%;
-      max-width: 1000px; 
-      margin: 80px auto;
-        float: right;
-        margin-right: 80px;
-    }
 
-    .content-section {  
-      margin-bottom: 20px;
-      padding: 20px;
-         float: right;
-    }
+.number-links a.active {
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid black;
+}
 
-    .content-section img,
-    .content-section iframe {
-        max-width: 80%;
-        width: 100%; /* 부모 요소에 맞게 너비 조정 */
-        height: auto; /* 자동 비율 유지 */
-        display: block;
-        margin-bottom: 10px;
-        margin-left: 50px;
-    }
+main {
+  width: 90%;
+  max-width: 1000px;
+  margin: 80px auto;
+  margin-right: 80px;
+}
 
-  .content-section iframe {
-        width: 1920px;
-        height: 450px; /* 고정된 높이 */
-        margin-left: 50px;
-        border: none;
-    }
-
-    .section-divider {
+/* ===== Alchemy 폭 통일용 wrapper ===== */
+.content-inner {
   width: 80%;
-  margin: 40px 0 20px 50px; /* 위 / 아래 간격 */
+  margin-left: 50px;
+}
+
+/* ===== 2장 이미지 그리드 ===== */
+.img-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;          /* 이미지 사이 간격 */
+  margin: 14px 0;    /* 위아래 간격 (텍스트랑 이미지 gap 느낌) */
+}
+
+/* img-row 안 이미지는 절대 밀리지 않게 */
+.content-inner .img-row img {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  display: block;
+}
+
+/* ===== 일반 콘텐츠 (단일 이미지/iframe) ===== */
+.content-section img,
+.content-section iframe {
+  max-width: 80%;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-left: 50px;
+}
+
+/* 단일 이미지 아래 간격 (텍스트랑 이미지 gap) */
+.content-section img {
+  margin-bottom: 16px;
+  margin-top:20px;
+}
+
+/* iframe 설정 */
+.content-section iframe {
+  height: 450px;
+  border: none;
+  margin-bottom: 16px;
+}
+
+/* ===== 문단 간격 복구 (Alchemy에서 붙어 보이던 문제 해결) ===== */
+.content-section p {
+  width: 80%;
+  margin-left: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.section-divider {
+  width: 80%;
+  margin: 40px 0 20px 50px;
   border: none;
   border-top: 1px solid #000;
 }
-    
-      p {
-          width: 80%;
-           margin-left: 50px;
-      }
-      
-      p1 {
-            width: 80%;
-          font-style: italic;
-          font-size: 25px;
-           margin-left: 80px;
-      }
+
+p1 {
+  width: 80%;
+  font-style: italic;
+  font-size: 25px;
+  margin-left: 60px;
+}
+
+p2 {
+  width: 80%;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 60px;
+}
+
+
+.slide-container {
+  position: relative;
+  width: 80%;
+  margin: 0;
+  overflow: hidden;
+
+  /* 너가 원한 “컨테이너가 딱 정해져있는 느낌” */
+  height: 420px;
+  margin-left: 50px; /* 기존 레이아웃 맞추려고 여기로 둠 */
+  display: flex;
+  align-items: center;
+}
+
+.slide-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2px;                 /* 사진 사이 간격 */
+  transition: transform 0.45s ease;
+  will-change: transform;
+}
+
+.slide-wrapper img {
+  height: 420px;             /* ✅ 높이 통일 */
+  width: auto;               /* ✅ 가로는 비율대로 */
+  display: block;
+  object-fit: contain;       /* ✅ 위아래 안 잘림 */
+  flex-shrink: 0;
+}
+
+/* 버튼 */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255,255,255,0.7);
+  border: none;
+  font-size: 2rem;
+  padding: 8px 12px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:disabled,
+.next:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+
   </style>
 </head>
 <body>
@@ -163,17 +243,57 @@
    
                    <p1> Alchemy of Destiny </p1>
 
-      <div class="content-section" id="1"> </div>
-      <p style="font-size: 13px">Personal Project</p><p>"Alchemy of Destiny" is a interative device of fortune-telling. </p>
-
+      <div class="content-section" id="1"> 
+      <img src = "rootfolder/destiny1.jpeg" alt="1"/>
+      <p style="font-size: 13px">Personal Project</p><p>"Alchemy of Destiny" is an interactive installation that asks participants to explore their relationship to prediction and uncertainty. 
+        The work uses a stepper motor, potentiometers, and a layered disc mechanism to turn fortune telling into a mechanical ritual. 
+        Participants press a button to spin the discs, then adjust knobs to express their current emotional or psychological state. 
+        These inputs generate a fortune, which is revealed through a small OLED screen only when the apertures realign.
+The project emphasizes the ambiguity of destiny and the desire to glimpse the future, even when it remains unclear. 
+By hiding and revealing messages through unstable mechanical alignments, the installation invites playful interaction while reflecting on the strange mix of curiosity, belief, and skepticism that shapes how we search for meaning. </p>
+<div class="content-inner">
+  <div class="img-row">
+    <img src="rootfolder/m1.jpg" alt="">
+    <img src="rootfolder/m2.jpg" alt="">
+  </div>
+</div>
+<p>During the exhibition, participants were asked to stamp how relatable the fortune-telling sentence felt to them. They could choose from four different icons. During the exhibition, participants were asked to stamp how relatable the fortune-telling sentence felt to them. They could choose from four different icons. These responses were collected through a short question designed for data visualization, allowing participants’ emotional reactions to be visually mapped.
+As they adjusted the knobs and took time to reflect on their feelings, many participants felt heart-warmed by the encouraging words inside the box.
+Because the interaction was time-limited, some participants quickly made up their minds and waited for the roulette to stop. Others ran out of time and were unsure about their feelings, but they often reacted more strongly and felt especially heart-warmed after seeing the final outcome.</p>
+</div>
       <hr class="section-divider">
 
- <div class = "content-section" id="2"></div>
-    <p style="font-weight:bold">Sketch</p>
+ <div class = "content-section" id="2">
+    <p2>Sketch</p2>
+<img src="rootfolder/destinysketch.jpg">
+<p>The concept of this project began with my personal feelings of having an unclear and blurry future. 
+  I spent a long time reflecting on questions about my destiny and what might lie ahead. Rather than seeking definitive answers, 
+  I became interested in the act of contemplation itself.
+As a result, I wanted to create a device that allows participants to privately reflect on their own state of mind and receive a form of feedback about their destiny. 
+The project is not meant to predict the future, but to offer a quiet moment for self-reflection through interaction.</p>
+<p>The four potentiometers in the installation reference the structure of saju (Korean Four Pillars of Destiny), 
+  which is traditionally composed of four elements representing the year, month, day, and time of birth. Rather than translating these elements literally, 
+  the knobs symbolically invite participants to consider multiple layers of their current emotional and psychological state, 
+  mimicking the way saju frames destiny through interconnected variables.</p>
+<p style="font-weight:bold;">Fabrication Process Records</p>
+ </div>
+<div class="slide-container">
+  <button class="prev">&#8592;</button>
+<div class="slide-wrapper" id="slideWrapper">
+    <img src="rootfolder/destinys4.jpeg" alt="">
+    <img src="rootfolder/destinys1.jpeg" alt="">
+    <img src="rootfolder/destinys2.jpeg" alt="">
+    <img src="rootfolder/destinys3.PNG" alt="">
+    <img src="rootfolder/destinys.jpeg" alt="">
+  </div>
+  <button class="next">&#8594;</button>
+</div>
 
+
+ <hr class="section-divider">
 
   <div class = "content-section" id="3"> </div>
-    <p style="font-weight:bold">Arduino + Circuit</p>
+    <p2>Arduino + Circuit</p>
 
   </main>
 
@@ -181,15 +301,16 @@
     
     
      <script>
-  // 모든 숫자 링크를 가져옵니다.
+ // 모든 숫자 링크를 가져옵니다.
   const numberLinks = document.querySelectorAll('.number-links a');
 
-  // 페이지 로드 시 첫 번째 링크에 동그라미 표시
+  // 페이지 로드 시 2번 링크에 동그라미 표시
   window.addEventListener('DOMContentLoaded', () => {
-    if (numberLinks.length > 1) {
-      numberLinks[0].classList.add('active'); // 1번에 기본 active
+    if (numberLinks.length >= 1) {
+      numberLinks[0].classList.add('active'); // 0-based index, 2번 링크는 index 1
     }
   });
+
 
   // 숫자 클릭 시 동작 처리
   numberLinks.forEach(link => {
@@ -214,6 +335,56 @@
       e.preventDefault(); // 기본 동작 방지 (내부 링크일 경우)
     });
   });
+
+
+
+  // (너 네비 active 처리 코드는 그대로 두고)
+  // ===== slider only =====
+const container = document.querySelector('.slide-container');
+const wrapper = document.getElementById('slideWrapper');
+const slides = Array.from(wrapper.querySelectorAll('img'));
+const prevBtn = container.querySelector('.prev');
+const nextBtn = container.querySelector('.next');
+
+let idx = 0;
+
+function clamp(v, min, max) {
+  return Math.max(min, Math.min(max, v));
+}
+
+function update() {
+  // 현재 슬라이드의 "중심"이 컨테이너 중심에 오도록 이동
+  const containerCenter = container.clientWidth / 2;
+
+  const slide = slides[idx];
+  const slideLeft = slide.offsetLeft;
+  const slideCenter = slideLeft + slide.getBoundingClientRect().width / 2;
+
+  const maxTranslate = Math.max(0, wrapper.scrollWidth - container.clientWidth);
+  const target = clamp(slideCenter - containerCenter, 0, maxTranslate);
+
+  wrapper.style.transform = `translateX(-${target}px)`;
+
+  prevBtn.disabled = idx === 0;
+  nextBtn.disabled = idx === slides.length - 1;
+}
+
+prevBtn.addEventListener('click', () => {
+  if (idx > 0) idx--;
+  update();
+});
+
+nextBtn.addEventListener('click', () => {
+  if (idx < slides.length - 1) idx++;
+  update();
+});
+
+window.addEventListener('resize', update);
+
+// 이미지 로딩 끝난 다음 정확히 계산
+Promise.all(slides.map(img => img.complete ? Promise.resolve() : new Promise(res => img.addEventListener('load', res, { once: true })) ))
+  .then(update);
+
       
   </script>
 </html>
