@@ -120,15 +120,22 @@
     
       p {
           width: 80%;
-           margin-left: 50px;
+        margin-left: 50px;
       }
       
       p1 {
             width: 80%;
           font-style: italic;
           font-size: 25px;
-           margin-left: 80px;
+           margin-left: 70px;
       }
+
+      p2 {
+  width: 80%;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 50px;
+}
   </style>
 </head>
 <body>
@@ -137,7 +144,7 @@
       <a href="index.html" style="text-decoration: none; color:black">Dukyung Kang</a>
     </div>
     <div class="contact-info">
-      +82 10-2362-8754<br />
+      +01 917-244-7873<br/>
       kassiakang01@gmail.com
     </div>
   </header>
@@ -146,29 +153,57 @@
     <div class="archive">Archive</div>
     <div class="number-links">
        <a href="Digital%20Pollution.html">1</a>
-      <a href="DopamineCreature.html">2</a>
-      <a href="Moneystory.html">3</a>
-      <a href="Grigarden.html">4</a>
-      <a href="xcut.html">5</a>
-      <a href="14f.html">6</a>
-      <a href="Incheon.html">7</a>
+         <a href="playdate.html">2</a>
+      <a href="DopamineCreature.html">3</a>
+      <a href="Moneystory.html">4</a>
+      <a href="Grigarden.html">5</a>
+      <a href="xcut.html">6</a>
+      <a href="14f.html">7</a>
+      <a href="Incheon.html">8</a>
     </div>
   </nav>
 
   <main>
    
-                   <p1> Incheon Family (인천패밀리) </p1>
+ <p1> Your Next Play Date </p1>
+
+<div class="content-section" id="3">
+    <iframe 
+src="https://player.vimeo.com/video/1172414023?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
+width="1920" 
+height="1080" 
+frameborder="0" 
+allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+title="YourNextPlayDate">
+</iframe>
+    </div>
 
       <div class="content-section" id="1">
-      <img src="rootfolder/incheonlogo.jpg" alt="First Image" />
-      <p style="font-size: 13px">Company Project</p><p>"Incheon Family" is a collaborative program with Incheon Urban Development Corporation, featured on the 14F YouTube channel. I created the branding for all three seasons, designing a warm and charming visual identity to make the program feel approachable and enjoyable for viewers. </p>
+      <p style="font-size: 13px">Group Project (Kassia Kang, Xiaoxu Han, Selina Guo, Yutong Cai) </p>
+      <p>Inspired by vintage Barbie commercials, this project features four male characters who humorously exaggerate their personas like toy figures in a commercial. 
+        Each character presents himself with exaggerated confidence, demonstrating behaviors commonly seen in contemporary dating culture. 
+        Through short scripted lines and performative gestures, they advertise their personalities as if they were products being sold.
+        <br>The characters were created using 3D scans of real participants, allowing their physical presence and expressions to become part of the narrative. 
+        The scans were processed and rendered using Jawset, which helped translate the scanned models into stylized digital characters for the final video. </p>
     </div>
-<div class="content-section" id="3">
-     <iframe src="https://player.vimeo.com/video/1044889946?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="incheontitle"></iframe>
-    </div>
-      
+
     <div class="content-section" id="2">
-   
+         <p2>Sketch</p2>
+  <p>To create the characters, we recorded a short 1–2 minute video of each participant using a smartphone camera. 
+    The model stood in the center under three studio lights while holding a pose, and we slowly circled around them to capture a full 360-degree scan, moving from the top of the head to the face, torso, and lower body while keeping the camera focus locked.
+The footage was then imported into Jawset, where the software generated a Gaussian splat model through its reconstruction process. 
+After the splats were generated, we cleaned the scan by removing unnecessary areas and isolating only the character model for use in the final project.</p>
+
+    <iframe 
+src="https://www.youtube.com/embed/-cd7Et__nyk"
+width="1920" 
+height="1080" 
+frameborder="0" 
+allow="autoplay; fullscreen; picture-in-picture"
+allowfullscreen
+title="YourNextPlayDate Short">
+</iframe>
+      <img src="rootfolder/barbiebox.png" alt="First Image" />
     </div>
 
   </main>
@@ -183,7 +218,7 @@
   // 페이지 로드 시 첫 번째 링크에 동그라미 표시
   window.addEventListener('DOMContentLoaded', () => {
     if (numberLinks.length > 1) {
-      numberLinks[6].classList.add('active'); // 1번에 기본 active
+      numberLinks[1].classList.add('active'); // 1번에 기본 active
     }
   });
 
